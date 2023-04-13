@@ -9,6 +9,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { ArticleItem } from "../components/ArticleItem";
 import { Modal } from "../components/Modal";
+import CustomButton from "../components/customized/CustomButton";
 
 export default function Articles() {
   const [search, setSearch] = useState("");
@@ -19,7 +20,7 @@ export default function Articles() {
   const [newArticle, setNewArticle] = useState({title: "", body: "", userId: 5});
 
   useEffect(() => {
-    axios.get("https://dummyjson.com/posts/search?limit=5&q=" + search).then((response) => {
+    axios.get("https://dummyjson.com/posts/search?limit=6&q=" + search).then((response) => {
       setArticles(response.data.posts);
     });
   }, [search, reload]);
@@ -59,7 +60,9 @@ export default function Articles() {
           label="Recherche"
           variant="outlined"
         />
-        <Button variant={"contained"} onClick={() => setOpenModal(true)}>Ajouter</Button>
+        <div>
+        <CustomButton size="large" variant="contained" color='secondary'>Soumettre</CustomButton>
+        </div>
       </div>
       <Grid container spacing={2}>
         {articles.map((item, index) => {
