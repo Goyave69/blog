@@ -1,9 +1,10 @@
 import {
   Grid,
   TextField,
-  Button,
   Snackbar,
-  Alert
+  Alert,
+  Typography,
+  Box
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
@@ -51,7 +52,8 @@ export default function Articles() {
 
   return (
     <div style={{ margin: 15 }}>
-      <h1>My articles</h1>
+      <Typography variant="h3"> My articles</Typography>
+      <Typography variant="subtitle"> This is a list of articles</Typography>
       <div style={{marginBottom: 20, display: 'flex', justifyContent: 'space-between'}}>
         <TextField
           value={search}
