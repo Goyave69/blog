@@ -26,7 +26,7 @@ export default function AuthContextProvider(props) {
         setId(null);
         setIsLoggedIn(false);
     }
-
+    
     // 3 create contextValue with object that contains functions and state's values
     const contextValue = {
         username: username,
