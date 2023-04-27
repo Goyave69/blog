@@ -12,7 +12,7 @@ export const AuthContext = createContext({
 export default function AuthContextProvider(props) {
     // 2 create all useStates and function who let us handle login and logout
     const [username, setUsername] = useState(localStorage.getItem('username'));
-    const [isLoggedIn, setIsLoggedIn] = useState(JSON.parse(localStorage.getItem('isLoggedIn')));
+    const [isLoggedIn, setIsLoggedIn] = useState(JSON.parse(localStorage.getItem('isLoggedIn'))); 
     const [id, setId] = useState(Number(localStorage.getItem('id')));
 
     const handleLogin = ({username, id}) => {
@@ -25,9 +25,9 @@ export default function AuthContextProvider(props) {
     }
     
     const handleLogout = () => {
-        localStorage.removeItem('username', username);
-        localStorage.removeItem('id', id);
-        localStorage.removeItem('isLoggedIn', true);
+        localStorage.removeItem('username');
+        localStorage.removeItem('id');
+        localStorage.removeItem('isLoggedIn');
         setUsername("");
         setId(null);
         setIsLoggedIn(false)
@@ -44,7 +44,7 @@ export default function AuthContextProvider(props) {
 
     //4 return AuthContext.Provider with contextValue as value prop
     return (
-        <AuthContext.Provider value={contextValue}>``
+        <AuthContext.Provider value={contextValue}>
             {props.children}
         </AuthContext.Provider>    
     )

@@ -3,6 +3,7 @@ import { AuthContext } from "../context/AuthContextProvider";
 
 export default function Contact() {
   const authCtx = useContext(AuthContext);
+  console.log(authCtx);
   return (
     <>
       <h1>
